@@ -290,4 +290,78 @@ function finishExperiment(){
 
     });
 
+} 
+// ===============================
+// BACKGROUND
+// ===============================
+
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas(){
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
 }
+
+window.addEventListener("resize", resizeCanvas);
+
+resizeCanvas();
+
+const particles = [];
+
+for(let i=0;i<220;i++){
+
+    particles.push({
+
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+
+        r:Math.random()*2+1,
+
+        vx:(Math.random()-0.5)*0.5,
+        vy:(Math.random()-0.5)*0.5,
+
+        alpha:Math.random()
+
+    });
+
+}
+
+function drawParticles(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach(p=>{
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if(p.x<0)p.x=canvas.width;
+        if(p.x>canvas.width)p.x=0;
+
+        if(p.y<0)p.y=canvas.height;
+        if(p.y>canvas.height)p.y=0;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.r,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle=`rgba(0,255,255,${p.alpha})`;
+
+        ctx.fill();
+
+    });
+
+    requestAnimationFrame(drawParticles);
+
+}
+
+drawParticles();
