@@ -1,4 +1,6 @@
+/* ========================= */
 /* RESET */
+/* ========================= */
 
 *{
     margin:0;
@@ -6,129 +8,200 @@
     box-sizing:border-box;
 }
 
-html,
-body{
+html,body{
+
     width:100%;
     height:100%;
     overflow:hidden;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#030712;
+
+    background:#030813;
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
 }
 
-/* ARKA PLAN */
+/* ========================= */
+/* BACKGROUND */
+/* ========================= */
 
-#background{
+#bg{
+
     position:fixed;
+
     inset:0;
+
     width:100%;
+
     height:100%;
+
     z-index:0;
+
 }
 
-/* SİS */
+/* ========================= */
+/* FOG */
+/* ========================= */
 
 #fog{
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     z-index:1;
 
     background:
-    radial-gradient(circle at 20% 20%,rgba(0,255,255,.08),transparent 35%),
-    radial-gradient(circle at 80% 70%,rgba(0,140,255,.07),transparent 40%),
-    radial-gradient(circle at 50% 50%,rgba(255,255,255,.03),transparent 55%);
+
+    radial-gradient(circle at 20% 20%,
+    rgba(0,255,255,.06),
+    transparent 40%),
+
+    radial-gradient(circle at 80% 70%,
+    rgba(0,120,255,.08),
+    transparent 40%),
+
+    radial-gradient(circle at 50% 50%,
+    rgba(255,255,255,.03),
+    transparent 60%);
 
     filter:blur(70px);
 
-    animation:fogMove 15s ease-in-out infinite alternate;
+    animation:fog 18s ease-in-out infinite alternate;
+
 }
 
-@keyframes fogMove{
+@keyframes fog{
 
 0%{
-transform:translate(-40px,-30px) scale(1);
+
+transform:
+translate(-30px,-20px)
+scale(1);
+
 }
 
 100%{
-transform:translate(40px,30px) scale(1.15);
-}
+
+transform:
+translate(30px,20px)
+scale(1.2);
 
 }
 
-/* GİRİŞ */
+}
+
+/* ========================= */
+/* INTRO */
+/* ========================= */
 
 #intro{
 
     position:absolute;
+
     inset:0;
 
     display:flex;
-    flex-direction:column;
 
     justify-content:center;
+
     align-items:center;
 
     z-index:5;
 
 }
 
-/* BAŞLIK */
+.glass{
 
-#logo{
+    width:min(650px,92%);
 
-    color:#6ee7ff;
+    padding:40px;
 
-    font-size:72px;
+    border-radius:25px;
+
+    background:rgba(5,20,35,.45);
+
+    border:1px solid rgba(0,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+
+    0 0 50px rgba(0,255,255,.15),
+
+    inset 0 0 30px rgba(255,255,255,.04);
+
+    text-align:center;
+
+}
+
+/* ========================= */
+/* TITLE */
+/* ========================= */
+
+.glass h1{
+
+    color:#7cefff;
+
+    font-size:64px;
 
     letter-spacing:8px;
 
-    text-shadow:
-    0 0 15px #00ffff,
-    0 0 35px #00bfff,
-    0 0 60px #0099ff;
+    margin-bottom:35px;
 
-    margin-bottom:40px;
+    text-shadow:
+
+    0 0 15px cyan,
+
+    0 0 35px #00bfff,
+
+    0 0 70px #008cff;
 
 } 
 /* ========================= */
-/* TERMINAL PANEL */
+/* TERMINAL */
 /* ========================= */
 
 #terminal{
 
-    width:min(700px,90%);
+    width:100%;
 
-    padding:25px;
+    min-height:170px;
 
-    margin-bottom:40px;
+    padding:20px;
 
-    border:1px solid rgba(0,255,255,.25);
+    margin-bottom:35px;
 
     border-radius:18px;
 
-    background:rgba(10,20,35,.35);
+    border:1px solid rgba(0,255,255,.18);
 
-    backdrop-filter:blur(18px);
+    background:rgba(0,10,25,.55);
 
     box-shadow:
-    0 0 25px rgba(0,255,255,.18),
-    inset 0 0 25px rgba(0,255,255,.05);
+    inset 0 0 20px rgba(0,255,255,.08);
+
+    text-align:left;
+
+    overflow:hidden;
 
 }
 
-.line{
+#terminal p{
 
-    color:#9ffcff;
+    color:#8ffcff;
 
-    font-size:18px;
+    font-size:17px;
 
-    margin:12px 0;
+    line-height:32px;
 
-    letter-spacing:1px;
+    font-family:Consolas,monospace;
 
-    opacity:.9;
-
-    font-family:monospace;
+    white-space:pre-wrap;
 
 }
 
@@ -138,29 +211,32 @@ transform:translate(40px,30px) scale(1.15);
 
 #startBtn{
 
-    padding:18px 55px;
+    padding:18px 60px;
 
     border:none;
 
-    border-radius:999px;
+    border-radius:50px;
 
     cursor:pointer;
 
-    font-size:20px;
+    color:white;
+
+    font-size:18px;
 
     font-weight:bold;
 
     letter-spacing:2px;
 
-    color:white;
-
-    background:linear-gradient(90deg,#00d4ff,#0077ff);
+    background:
+    linear-gradient(90deg,#00d9ff,#0078ff);
 
     box-shadow:
-    0 0 20px #00d4ff,
-    0 0 45px rgba(0,212,255,.5);
 
-    transition:.3s;
+    0 0 20px #00d9ff,
+
+    0 0 45px rgba(0,217,255,.5);
+
+    transition:.35s;
 
 }
 
@@ -169,8 +245,10 @@ transform:translate(40px,30px) scale(1.15);
     transform:scale(1.08);
 
     box-shadow:
-    0 0 35px #00ffff,
-    0 0 70px #00bfff;
+
+    0 0 35px cyan,
+
+    0 0 70px #00aaff;
 
 }
 
@@ -181,25 +259,16 @@ transform:translate(40px,30px) scale(1.15);
 }
 
 /* ========================= */
-/* HIDDEN */
+/* LAB */
 /* ========================= */
 
-.hidden{
-
-    display:none;
-
-} 
-/* ========================= */
-/* LAB SCENE */
-/* ========================= */
-
-#labScene{
+#lab{
 
     position:absolute;
 
     inset:0;
 
-    display:flex;
+    display:none;
 
     justify-content:center;
 
@@ -207,10 +276,7 @@ transform:translate(40px,30px) scale(1.15);
 
     z-index:6;
 
-    overflow:hidden;
-
-}
-
+} 
 /* ========================= */
 /* SCANNER */
 /* ========================= */
@@ -219,14 +285,12 @@ transform:translate(40px,30px) scale(1.15);
 
     position:relative;
 
-    width:320px;
-
-    height:320px;
+    width:420px;
+    height:420px;
 
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
 }
@@ -239,42 +303,40 @@ transform:translate(40px,30px) scale(1.15);
 
     position:absolute;
 
-    border:2px solid rgba(0,255,255,.5);
-
     border-radius:50%;
 
-    animation:spin 10s linear infinite;
+    border:2px solid rgba(0,255,255,.45);
 
     box-shadow:
-    0 0 20px #00ffff,
-    inset 0 0 15px #00bfff;
+    0 0 25px cyan,
+    inset 0 0 25px rgba(0,255,255,.25);
 
 }
 
-.ring1{
+.r1{
 
     width:180px;
     height:180px;
 
-}
-
-.ring2{
-
-    width:250px;
-    height:250px;
-
-    animation-direction:reverse;
-
-    animation-duration:8s;
+    animation:spin 5s linear infinite;
 
 }
 
-.ring3{
+.r2{
 
-    width:320px;
-    height:320px;
+    width:270px;
+    height:270px;
 
-    animation-duration:12s;
+    animation:spinReverse 8s linear infinite;
+
+}
+
+.r3{
+
+    width:360px;
+    height:360px;
+
+    animation:spin 12s linear infinite;
 
 }
 
@@ -290,28 +352,18 @@ transform:translate(40px,30px) scale(1.15);
 
 }
 
-/* ========================= */
-/* PLATE */
-/* ========================= */
+@keyframes spinReverse{
 
-#plate{
+    from{
+        transform:rotate(360deg);
+    }
 
-    position:absolute;
+    to{
+        transform:rotate(0deg);
+    }
 
-    width:170px;
+}
 
-    height:170px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(circle,#ffffff,#dfe8ff);
-
-    box-shadow:
-    0 0 35px rgba(255,255,255,.6),
-    0 0 70px rgba(0,255,255,.25);
-
-} 
 /* ========================= */
 /* PORTAL */
 /* ========================= */
@@ -325,49 +377,66 @@ transform:translate(40px,30px) scale(1.15);
 
     border-radius:50%;
 
-    background:radial-gradient(circle,
+    background:
+    radial-gradient(circle,
     rgba(0,255,255,.35),
-    rgba(0,120,255,.15),
+    rgba(0,140,255,.15),
     transparent 70%);
 
-    filter:blur(10px);
+    filter:blur(12px);
 
-    animation:portalPulse 2.5s ease-in-out infinite;
-
-    z-index:1;
+    animation:pulse 2.2s ease-in-out infinite;
 
 }
 
-@keyframes portalPulse{
+@keyframes pulse{
 
-0%{
+0%,100%{
 
 transform:scale(.8);
-opacity:.3;
+
+opacity:.4;
 
 }
 
 50%{
 
 transform:scale(1.15);
+
 opacity:1;
 
 }
 
-100%{
-
-transform:scale(.8);
-opacity:.3;
-
 }
 
-}
+/* ========================= */
+/* PLATE */
+/* ========================= */
 
+#plate{
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,#ffffff,#dfe8ff);
+
+    box-shadow:
+    0 0 35px rgba(255,255,255,.7),
+    0 0 80px rgba(0,255,255,.25);
+
+    z-index:3;
+
+} 
 /* ========================= */
 /* FOOD PHOTO */
 /* ========================= */
 
-#dishPhoto{
+#dish{
 
     position:absolute;
 
@@ -375,17 +444,23 @@ opacity:.3;
 
     max-width:70vw;
 
-    border-radius:25px;
+    border-radius:22px;
 
     opacity:0;
 
     transform:scale(.6);
 
-    box-shadow:
-    0 0 35px rgba(0,255,255,.5),
-    0 0 80px rgba(0,140,255,.35);
+    object-fit:cover;
 
     z-index:5;
+
+    box-shadow:
+
+    0 0 35px rgba(0,255,255,.45),
+
+    0 0 70px rgba(0,150,255,.35),
+
+    0 0 120px rgba(0,255,255,.15);
 
 }
 
@@ -401,86 +476,84 @@ opacity:.3;
 
     top:40px;
 
-    width:300px;
+    width:330px;
 
-    padding:20px;
+    padding:22px;
 
     border-radius:18px;
 
-    background:rgba(8,18,35,.55);
+    background:rgba(5,18,35,.55);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
 
-    border:1px solid rgba(0,255,255,.25);
-
-    color:#b8ffff;
+    border:1px solid rgba(0,255,255,.18);
 
     box-shadow:
-    0 0 20px rgba(0,255,255,.2);
 
-    opacity:0;
+    0 0 25px rgba(0,255,255,.18),
+
+    inset 0 0 20px rgba(255,255,255,.03);
 
 }
 
 #analysis h2{
 
-    margin-bottom:15px;
+    color:#7ef7ff;
 
-    color:#6efcff;
+    margin-bottom:18px;
 
-    font-size:22px;
+    letter-spacing:2px;
+
+    text-shadow:0 0 10px cyan;
 
 }
 
-#analysis p{
+#log{
 
-    line-height:1.7;
+    color:#aefcff;
 
     font-size:15px;
 
-    font-family:monospace;
+    line-height:28px;
 
-} 
-/* FINAL SCREEN */
+    font-family:Consolas,monospace;
 
-#finish{
-
-    position:fixed;
-
-    inset:0;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:rgba(0,0,0,.85);
-
-    z-index:999;
+    white-space:pre-wrap;
 
 }
 
-#finish h1{
+/* ========================= */
+/* MOBILE */
+/* ========================= */
 
-    color:#6efcff;
+@media(max-width:900px){
 
-    font-size:60px;
+#analysis{
 
-    text-shadow:0 0 30px cyan;
+    width:90%;
+
+    left:50%;
+
+    top:auto;
+
+    bottom:25px;
+
+    right:auto;
+
+    transform:translateX(-50%);
 
 }
 
-#finish p{
+#scanner{
 
-    margin-top:20px;
+    transform:scale(.8);
 
-    color:white;
+}
 
-    font-size:24px;
+.glass h1{
 
-    letter-spacing:2px;
+    font-size:42px;
+
+}
 
 }
