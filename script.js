@@ -218,13 +218,11 @@ function startAnalysis(){
 
 let currentDish=0;
 
-const dishes=[
-
-    "images/food1.jpg",
-    "images/food2.jpg",
-    "images/food3.jpg",
-    "images/food4.jpg"
-
+const dishes = [
+    "food1.JPG",
+    "food2.JPG",
+    "food3.JPG",
+    "food4.JPG"
 ];
 
 function showDish(){
