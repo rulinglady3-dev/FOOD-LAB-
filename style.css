@@ -556,4 +556,49 @@ opacity:1;
 
 }
 
+} 
+/* ========================= */
+/* FINISH SCREEN */
+/* ========================= */
+
+#finishScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.9);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+#finishScreen h1{
+
+    color:#7efcff;
+
+    font-size:56px;
+
+    text-shadow:0 0 20px cyan;
+
+}
+
+#finishScreen p{
+
+    margin-top:20px;
+
+    color:white;
+
+    font-size:22px;
+
+    letter-spacing:1px;
+
 }
