@@ -251,4 +251,123 @@ function showDish(){
 
     );
 
+} 
+// =========================
+// FOTOĞRAFLARI SIRAYLA GÖSTER
+// =========================
+
+function nextDish(){
+
+    currentDish++;
+
+    if(currentDish >= dishes.length){
+
+        finishExperiment();
+
+        return;
+
+    }
+
+    analysisText.innerHTML="";
+
+    gsap.to(dishPhoto,{
+
+        opacity:0,
+        scale:.6,
+        duration:.6,
+
+        onComplete:()=>{
+
+            startAnalysis();
+
+        }
+
+    });
+
+}
+
+
+// =========================
+// FOTOĞRAF GÖRÜNÜNCE
+// =========================
+
+gsap.set("#dishPhoto",{
+
+    transformOrigin:"center center"
+
+});
+
+function showDish(){
+
+    dishPhoto.src=dishes[currentDish];
+
+    gsap.fromTo(
+
+        dishPhoto,
+
+        {
+            opacity:0,
+            scale:0.4,
+            rotation:-15
+        },
+
+        {
+            opacity:1,
+            scale:1,
+            rotation:0,
+            duration:1.5,
+            ease:"power3.out",
+
+            onComplete(){
+
+                setTimeout(nextDish,3000);
+
+            }
+
+        }
+
+    );
+
+}
+
+
+// =========================
+// BİTİŞ
+// =========================
+
+function finishExperiment(){
+
+    gsap.to("#analysis",{
+
+        opacity:0,
+        duration:1
+
+    });
+
+    gsap.to("#dishPhoto",{
+
+        opacity:0,
+        duration:1
+
+    });
+
+    const end=document.createElement("div");
+
+    end.id="finish";
+
+    end.innerHTML=`
+        <h1>EXPERIMENT COMPLETE</h1>
+        <p>4 Dishes Successfully Created</p>
+    `;
+
+    document.body.appendChild(end);
+
+    gsap.from(end,{
+
+        opacity:0,
+        scale:.7,
+        duration:1.5
+
+    });
+
 }
