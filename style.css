@@ -1,0 +1,443 @@
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#030712;
+}
+
+/* ARKA PLAN */
+
+#background{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+}
+
+/* SİS */
+
+#fog{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+
+    background:
+    radial-gradient(circle at 20% 20%,rgba(0,255,255,.08),transparent 35%),
+    radial-gradient(circle at 80% 70%,rgba(0,140,255,.07),transparent 40%),
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,.03),transparent 55%);
+
+    filter:blur(70px);
+
+    animation:fogMove 15s ease-in-out infinite alternate;
+}
+
+@keyframes fogMove{
+
+0%{
+transform:translate(-40px,-30px) scale(1);
+}
+
+100%{
+transform:translate(40px,30px) scale(1.15);
+}
+
+}
+
+/* GİRİŞ */
+
+#intro{
+
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:5;
+
+}
+
+/* BAŞLIK */
+
+#logo{
+
+    color:#6ee7ff;
+
+    font-size:72px;
+
+    letter-spacing:8px;
+
+    text-shadow:
+    0 0 15px #00ffff,
+    0 0 35px #00bfff,
+    0 0 60px #0099ff;
+
+    margin-bottom:40px;
+
+} 
+/* ========================= */
+/* TERMINAL PANEL */
+/* ========================= */
+
+#terminal{
+
+    width:min(700px,90%);
+
+    padding:25px;
+
+    margin-bottom:40px;
+
+    border:1px solid rgba(0,255,255,.25);
+
+    border-radius:18px;
+
+    background:rgba(10,20,35,.35);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 0 25px rgba(0,255,255,.18),
+    inset 0 0 25px rgba(0,255,255,.05);
+
+}
+
+.line{
+
+    color:#9ffcff;
+
+    font-size:18px;
+
+    margin:12px 0;
+
+    letter-spacing:1px;
+
+    opacity:.9;
+
+    font-family:monospace;
+
+}
+
+/* ========================= */
+/* START BUTTON */
+/* ========================= */
+
+#startBtn{
+
+    padding:18px 55px;
+
+    border:none;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    color:white;
+
+    background:linear-gradient(90deg,#00d4ff,#0077ff);
+
+    box-shadow:
+    0 0 20px #00d4ff,
+    0 0 45px rgba(0,212,255,.5);
+
+    transition:.3s;
+
+}
+
+#startBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 35px #00ffff,
+    0 0 70px #00bfff;
+
+}
+
+#startBtn:active{
+
+    transform:scale(.95);
+
+}
+
+/* ========================= */
+/* HIDDEN */
+/* ========================= */
+
+.hidden{
+
+    display:none;
+
+} 
+/* ========================= */
+/* LAB SCENE */
+/* ========================= */
+
+#labScene{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:6;
+
+    overflow:hidden;
+
+}
+
+/* ========================= */
+/* SCANNER */
+/* ========================= */
+
+#scanner{
+
+    position:relative;
+
+    width:320px;
+
+    height:320px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ========================= */
+/* ENERGY RINGS */
+/* ========================= */
+
+.ring{
+
+    position:absolute;
+
+    border:2px solid rgba(0,255,255,.5);
+
+    border-radius:50%;
+
+    animation:spin 10s linear infinite;
+
+    box-shadow:
+    0 0 20px #00ffff,
+    inset 0 0 15px #00bfff;
+
+}
+
+.ring1{
+
+    width:180px;
+    height:180px;
+
+}
+
+.ring2{
+
+    width:250px;
+    height:250px;
+
+    animation-direction:reverse;
+
+    animation-duration:8s;
+
+}
+
+.ring3{
+
+    width:320px;
+    height:320px;
+
+    animation-duration:12s;
+
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* ========================= */
+/* PLATE */
+/* ========================= */
+
+#plate{
+
+    position:absolute;
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,#ffffff,#dfe8ff);
+
+    box-shadow:
+    0 0 35px rgba(255,255,255,.6),
+    0 0 70px rgba(0,255,255,.25);
+
+} 
+/* ========================= */
+/* PORTAL */
+/* ========================= */
+
+#portal{
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+    rgba(0,255,255,.35),
+    rgba(0,120,255,.15),
+    transparent 70%);
+
+    filter:blur(10px);
+
+    animation:portalPulse 2.5s ease-in-out infinite;
+
+    z-index:1;
+
+}
+
+@keyframes portalPulse{
+
+0%{
+
+transform:scale(.8);
+opacity:.3;
+
+}
+
+50%{
+
+transform:scale(1.15);
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(.8);
+opacity:.3;
+
+}
+
+}
+
+/* ========================= */
+/* FOOD PHOTO */
+/* ========================= */
+
+#dishPhoto{
+
+    position:absolute;
+
+    width:280px;
+
+    max-width:70vw;
+
+    border-radius:25px;
+
+    opacity:0;
+
+    transform:scale(.6);
+
+    box-shadow:
+    0 0 35px rgba(0,255,255,.5),
+    0 0 80px rgba(0,140,255,.35);
+
+    z-index:5;
+
+}
+
+/* ========================= */
+/* AI PANEL */
+/* ========================= */
+
+#analysis{
+
+    position:absolute;
+
+    right:40px;
+
+    top:40px;
+
+    width:300px;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    background:rgba(8,18,35,.55);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(0,255,255,.25);
+
+    color:#b8ffff;
+
+    box-shadow:
+    0 0 20px rgba(0,255,255,.2);
+
+    opacity:0;
+
+}
+
+#analysis h2{
+
+    margin-bottom:15px;
+
+    color:#6efcff;
+
+    font-size:22px;
+
+}
+
+#analysis p{
+
+    line-height:1.7;
+
+    font-size:15px;
+
+    font-family:monospace;
+
+}
